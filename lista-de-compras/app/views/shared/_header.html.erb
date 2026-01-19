@@ -1,0 +1,11 @@
+<header class="mb-4">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded shadow-sm px-3">
+    <div class="container-fluid justify-content-between">
+      <span class="navbar-brand fw-bold text-primary">Minha Lista</span>
+      <div class="d-flex gap-2 align-items-center">
+        <%= link_to 'Adicionar item', new_item_path, class: 'btn btn-success' %>
+         <%= button_to 'Sair', destroy_user_session_path, method: :delete, form: { class: 'd-inline' }, class: 'btn btn-link nav-link p-0', data: { turbo: false } %>
+      </div>
+    </div>
+  </nav>
+</header>

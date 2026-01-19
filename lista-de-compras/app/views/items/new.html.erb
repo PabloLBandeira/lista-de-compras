@@ -1,0 +1,27 @@
+
+<%= render 'shared/header' %>
+
+<div class="container py-5" style="max-width: 400px;">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white text-center">
+      <h2 class="mb-0">Adicionar Item</h2>
+    </div>
+    <div class="card-body">
+      <%= form_with model: @item, local: true do |form| %>
+        <div class="mb-3">
+          <%= form.label :name, 'Nome do Item', class: "form-label" %>
+          <%= form.text_field :name, required: true, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :quantity, 'Quantidade', class: "form-label" %>
+          <%= form.number_field :quantity, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :notes, 'Notas', class: "form-label" %>
+          <%= form.text_area :notes, class: "form-control" %>
+        </div>
+        <%= form.submit 'Adicionar', class: "btn btn-primary w-100" %>
+      <% end %>
+    </div>
+  </div>
+</div>

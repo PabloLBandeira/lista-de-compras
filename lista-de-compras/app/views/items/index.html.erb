@@ -1,0 +1,38 @@
+
+<%= render 'shared/header' %>
+
+<div class="container py-4" style="max-width: 600px;">
+
+  <div class="mb-4">
+    <h2 class="h4 text-primary">A COMPRAR</h2>
+    <ul class="list-group mb-2">
+      <% @items.where(completed: [false, nil]).each do |item| %>
+        <li class="list-group-item d-flex align-items-center">
+          <%= form_with url: item_path(item), method: :patch, local: true, class: "d-flex align-items-center w-100" do |f| %>
+            <%= f.check_box :completed, { checked: false, onchange: 'this.form.submit();', class: "form-check-input me-2" } %>
+            <span class="flex-grow-1"><%= item.name %> <span class="text-muted">(<%= item.quantity || 'N/A' %>)</span></span>
+            <%= link_to 'Editar', edit_item_path(item), class: 'btn btn-outline-primary btn-sm ms-2' %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="mb-4">
+    <h2 class="h4 text-success">COMPRADOS</h2>
+    <ul class="list-group mb-2">
+      <% @items.where(completed: true).each do |item| %>
+        <li class="list-group-item d-flex align-items-center">
+          <%= form_with url: item_path(item), method: :patch, local: true, class: "d-flex align-items-center w-100" do |f| %>
+            <%= f.check_box :completed, { checked: true, onchange: 'this.form.submit();', class: "form-check-input me-2" } %>
+            <span class="flex-grow-1 text-decoration-line-through text-secondary"><%= item.name %> <span class="text-muted">(<%= item.quantity || 'N/A' %>)</span></span>
+            <%= link_to 'Editar', edit_item_path(item), class: 'btn btn-outline-primary btn-sm ms-2' %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <% if @items.where(completed: true).any? %>
+      <%= button_to 'Excluir todos os itens comprados', delete_all_purchased_items_path, method: :delete, data: { turbo: false, confirm: 'Tem certeza que deseja excluir todos os itens comprados?' }, class: 'btn btn-danger w-100' %>
+    <% end %>
+  </div>
+</div>
