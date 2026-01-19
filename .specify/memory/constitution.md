@@ -1,50 +1,64 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# TaskFlow Constitution
+
+<!-- Sync Impact Report: Initial adoption of TaskFlow governance model -->
+<!-- Version Change: Template → 1.0.0 | Date: 2026-01-13 -->
+<!-- Principles: 7 core governance principles established for MVC architecture with Rails + Angular -->
+<!-- Technology Stack: Rails 8.1.1, Angular 20, PostgreSQL, Hotwire (Turbo+Stimulus) -->
+<!-- Governance: Established Constitution-driven development, mandatory spec approval, pair programming on AI-generated code -->
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. MVC Layer Separation (NON-NEGOTIABLE)
+Cada funcionalidade deve ser implementada em camadas claramente separadas: Model (domínio/dados), View (interface) e Controller (lógica de aplicação). Dependências sempre apontam para dentro - View → Controller → Model.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Server-Rendered SPA Experience
+Turbo Drive + Turbo Frames para experiência SPA (Single-Page Application) com HTML servidor. Transições instantâneas sem recarregamento completo. Progressive enhancement obrigatório - funcionalidade básica sem JavaScript.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Component-Based Mobile (Phase 2)
+Componentes Angular devem ser autônomos, reutilizáveis e testáveis. Cada componente deve seguir uma adaptação do Atomic Design para o ecossistema Angular, com tipagem rigorosa usando TypeScript. Arquitetura standalone components com signals.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Test Pyramid Enforcement
+TDD obrigatório seguindo pirâmide de testes: 70% unitários (Models/Rails), 20% integração (Controllers/Turbo), 10% E2E (fluxos críticos). Tests escritos → Aprovados → Falham → Implementação.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. API-First Design (Mobile Phase)
+Backend segue contrato JSON:API definido antes da implementação mobile. Versionamento de API (v1/). Serializers consistentes com Fast JSON:API.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Rails Convention Over Configuration
+Seguir convenções Rails 8.1.1 rigorosamente. Hotwire (Turbo + Stimulus) como stack padrão frontend. Asset pipeline moderno com importmaps ou esbuild.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### VII. Portuguese-First Documentation (NON-NEGOTIABLE)
+Todas as especificações, documentações técnicas, comentários de código e commits devem ser escritos em português brasileiro (pt-BR). Nomenclatura de código (variáveis, métodos, classes) pode seguir convenções técnicas em inglês, mas toda documentação de negócio e comunicação técnica deve ser em português.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Technology Stack & Constraints
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- **Web Frontend**: Turbo (Hotwire) com HTML server-rendered, Stimulus.js para interatividade
+- **Backend**: Ruby 3.4.8 com Rails 8.1.1, PostgreSQL com ActiveRecord
+- **Mobile (Phase 2)**: Angular 20 com TypeScript, Consumo de API Rails
+- **Estilo**: Bootstrap CSS via Rails gem, Design responsivo mobile-first
+- **Autenticação**: Devise para web, JWT para API mobile
+- **Deploy**: Docker containerização, CI/CD com GitHub Actions
+
+## Development Workflow
+
+1. **Spec Approval**: Cada spec `.specify/03-*.md` deve ser aprovada antes do desenvolvimento
+2. **Pair Programming**: Todo código gerado por Copilot deve ser revisado em par por humano
+3. **Review Gates**: PRs exigem: todos os testes Rails (RSpec), linting (RuboCop), segurança (Brakeman)
+4. **Documentation**: Cada funcionalidade requer: Documentação de componente View, exemplos de uso Turbo, atualização do componente system test
+5. **Portuguese Documentation**: Todas as specs (.specify), READMEs, comentários de código e documentação técnica devem ser escritos em português (pt-BR). Commits em português.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Esta Constituição supera decisões ad-hoc. Mudanças exigem:
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+1. Proposta via PR no `.specify/constitution/`
+2. Aprovação de 2 maintainers
+3. Período de review de 3 dias
+4. Plano de migração para breaking changes
+
+Use `02-guardrails.md` para instruções específicas ao Copilot durante o desenvolvimento.
+
+Versão: 1.0.0
+Status: Aprovado
+Criado em: 16 de janeiro de 2026
+Última Revisão: 16 de janeiro de 2026
+Alinhado com: TaskFlow Constitution v1.0.0
