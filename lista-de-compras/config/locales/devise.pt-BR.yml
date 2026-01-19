@@ -1,0 +1,26 @@
+pt-BR:
+  devise:
+    passwords:
+      new:
+        title: "Esqueceu sua senha?"
+        submit: "Enviar instruções de redefinição de senha"
+        email_label: "E-mail"
+        success: "Você receberá um e-mail com instruções para redefinir sua senha em alguns minutos."
+      edit:
+        title: "Redefinir senha"
+        password_label: "Nova senha"
+        password_confirmation_label: "Confirme a nova senha"
+        submit: "Alterar minha senha"
+        success: "Sua senha foi alterada com sucesso. Você já está autenticado."
+      send_instructions: "Você receberá um e-mail com instruções para redefinir sua senha em alguns minutos."
+      updated: "Sua senha foi alterada com sucesso. Você já está autenticado."
+      updated_not_active: "Sua senha foi alterada com sucesso."
+      no_token: "Você não pode acessar esta página sem vir de um e-mail de redefinição de senha. Se você veio de um e-mail, verifique se usou a URL completa."
+      send_paranoid_instructions: "Se seu e-mail existir em nosso banco de dados, você receberá um link de recuperação em alguns minutos."
+    mailer:
+      reset_password_instructions:
+        subject: "Instruções para redefinir a senha"
+        greeting: "Olá %{email}!"
+        message: "Alguém solicitou um link para alterar sua senha. Você pode fazer isso pelo link abaixo."
+        action: "Redefinir minha senha"
+        ignore: "Se você não solicitou, ignore este e-mail. Sua senha não será alterada até que você acesse o link acima e crie uma nova."
