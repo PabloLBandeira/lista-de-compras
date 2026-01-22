@@ -1,7 +1,8 @@
-# Especificação 03 - Lista de Compras: Visão do Produto
+
+# Especificação 03 - Lista de Compras: Visão do Produto (Web e PWA)
 
 ## 1. Visão Geral
-Aplicação web para gerenciamento pessoal de lista de compras. Permite que usuários cadastrados adicionem itens, marquem-os como comprados e gerenciem suas listas de forma intuitiva e rápida, com uma experiência de página única (SPA).
+Aplicação web para gerenciamento pessoal de lista de compras. Permite que usuários cadastrados adicionem itens, marquem-os como comprados e gerenciem suas listas de forma intuitiva e rápida, com uma experiência de página única (SPA). A aplicação pode ser instalada como PWA em dispositivos móveis, sem necessidade de app nativo.
 
 ## 2. Requisitos Funcionais
 
