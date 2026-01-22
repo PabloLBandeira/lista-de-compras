@@ -3,7 +3,8 @@
 Para garantir que o logout funcione em todos os ambientes (inclusive sem JavaScript), utilize sempre button_to para o botão de sair, garantindo o método DELETE.
 
 Se utilizar Devise com o módulo :rememberable, certifique-se de que a migration de User inclui a coluna remember_created_at:datetime.
-# Blueprint de Configuração do Projeto
+
+# Blueprint de Configuração do Projeto (Web e PWA)
 
 ## Verificação de Dependências
 
@@ -38,7 +39,8 @@ Se utilizar Devise com o módulo :rememberable, certifique-se de que a migration
      ```
    - Caso não esteja instalado, instalar utilizando o gerenciador de pacotes do sistema.
 
-## Dockerização da Aplicação
+
+## Dockerização da Aplicação e Ativação do PWA
 
 1. Criar um arquivo `Dockerfile`:
    ```dockerfile
@@ -72,6 +74,7 @@ Se utilizar Devise com o módulo :rememberable, certifique-se de que a migration
    ```
 
 3. Construir e iniciar os containers:
+   4. Para ativar o PWA, certifique-se de que as rotas para manifest e service worker estão habilitadas em config/routes.rb e que o manifest está referenciado em application.html.erb.
    ```bash
    docker-compose up --build
    ```
