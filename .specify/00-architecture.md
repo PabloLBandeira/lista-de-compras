@@ -2,7 +2,7 @@
 
 ## 1. Visão Geral da Arquitetura
 
-Sistema web MVC com Rails 8.1.1 + Hotwire (Turbo/Stimulus) seguindo padrões de SPA (Single-Page Application) com HTML servidor. Aplicação mobile (Fase 2) com Angular 20 consumindo API Rails via JSON:API.
+Sistema web MVC com Rails 8.1.1 + Hotwire (Turbo/Stimulus) seguindo padrões de SPA (Single-Page Application) com HTML servidor. A experiência mobile é entregue via PWA (Progressive Web App), utilizando manifest e service worker já configurados, sem necessidade de app nativo ou framework externo.
 
 ## 2. Estrutura de Diretórios do projeto
 O diretório raiz deve conter o projeto em Rails e, no mesmo nível hierárquico, o diretório Spec, este deve conter as especificações para a criação dos códigos de toda a aplicação.
@@ -12,7 +12,7 @@ lista-de-compras/
   ├── app/
   ├── controllers/
   │   ├── web/                    # Controllers para views HTML (Turbo)
-  │   └── api/v1/                 # Controllers para API mobile (Fase 2)
+  │   └── api/v1/                 # Controllers para API externa (opcional)
   ├── models/
   │   ├── concerns/               # Modules compartilhados
   │   └── [domain_models]         # Models do domínio
