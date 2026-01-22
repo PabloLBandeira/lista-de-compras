@@ -2,8 +2,8 @@
 
 <!-- Sync Impact Report: Initial adoption of TaskFlow governance model -->
 <!-- Version Change: Template → 1.0.0 | Date: 2026-01-13 -->
-<!-- Principles: 7 core governance principles established for MVC architecture with Rails + Angular -->
-<!-- Technology Stack: Rails 8.1.1, Angular 20, PostgreSQL, Hotwire (Turbo+Stimulus) -->
+<!-- Principles: 7 core governance principles established for MVC architecture com Rails + PWA -->
+<!-- Technology Stack: Rails 8.1.1, PostgreSQL, Hotwire (Turbo+Stimulus), PWA -->
 <!-- Governance: Established Constitution-driven development, mandatory spec approval, pair programming on AI-generated code -->
 
 ## Core Principles
@@ -14,14 +14,14 @@ Cada funcionalidade deve ser implementada em camadas claramente separadas: Model
 ### II. Server-Rendered SPA Experience
 Turbo Drive + Turbo Frames para experiência SPA (Single-Page Application) com HTML servidor. Transições instantâneas sem recarregamento completo. Progressive enhancement obrigatório - funcionalidade básica sem JavaScript.
 
-### III. Component-Based Mobile (Phase 2)
-Componentes Angular devem ser autônomos, reutilizáveis e testáveis. Cada componente deve seguir uma adaptação do Atomic Design para o ecossistema Angular, com tipagem rigorosa usando TypeScript. Arquitetura standalone components com signals.
+### III. Mobile via PWA
+A experiência mobile será entregue via PWA (Progressive Web App), utilizando a mesma base Rails/Hotwire. O manifest e o service worker já estão configurados para permitir instalação e uso offline, sem necessidade de app nativo ou framework externo.
 
 ### IV. Test Pyramid Enforcement
 TDD obrigatório seguindo pirâmide de testes: 70% unitários (Models/Rails), 20% integração (Controllers/Turbo), 10% E2E (fluxos críticos). Tests escritos → Aprovados → Falham → Implementação.
 
-### V. API-First Design (Mobile Phase)
-Backend segue contrato JSON:API definido antes da implementação mobile. Versionamento de API (v1/). Serializers consistentes com Fast JSON:API.
+### V. API-First Design (se necessário)
+Se houver necessidade de integração externa, o backend pode expor contrato JSON:API. Para o uso mobile via PWA, a experiência é baseada em HTML server-rendered e Hotwire.
 
 ### VI. Rails Convention Over Configuration
 Seguir convenções Rails 8.1.1 rigorosamente. Hotwire (Turbo + Stimulus) como stack padrão frontend. Asset pipeline moderno com importmaps ou esbuild.
@@ -33,7 +33,7 @@ Todas as especificações, documentações técnicas, comentários de código e 
 
 - **Web Frontend**: Turbo (Hotwire) com HTML server-rendered, Stimulus.js para interatividade
 - **Backend**: Ruby 3.4.8 com Rails 8.1.1, PostgreSQL com ActiveRecord
-- **Mobile (Phase 2)**: Angular 20 com TypeScript, Consumo de API Rails
+- **Mobile**: PWA baseada em Rails/Hotwire, manifest e service worker configurados
 - **Estilo**: Bootstrap CSS via Rails gem, Design responsivo mobile-first
 - **Autenticação**: Devise para web, JWT para API mobile
 - **Deploy**: Docker containerização, CI/CD com GitHub Actions
