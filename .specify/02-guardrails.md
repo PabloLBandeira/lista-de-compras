@@ -1,7 +1,7 @@
 2.3. Logout Seguro
 ✅ O botão de logout deve obrigatoriamente usar button_to (formulário DELETE), nunca depender exclusivamente de link_to com method: :delete, para garantir compatibilidade com ambientes sem JavaScript e o padrão Rails 7+ com importmap.
 1. Objetivo
-Estabelecer regras e limitações claras para o GitHub Copilot durante o desenvolvimento do TaskFlow, garantindo conformidade com a arquitetura MVC, princípios Rails e padrões de qualidade definidos.
+Estabelecer regras e limitações claras para o GitHub Copilot durante o desenvolvimento do TaskFlow, garantindo conformidade com a arquitetura MVC, princípios Rails e padrões de qualidade definidos. A experiência mobile será garantida via PWA responsivo, sem dependência de app nativo.
 
 2. Regras Gerais de Comportamento
 2.1. Arquitetura MVC Estrita
